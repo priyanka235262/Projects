@@ -1,0 +1,42 @@
+Docker Project-1
+
+1.Pull Ubuntu Container:
+docker pull ubuntu
+
+2.Run this container and map port 80 on this local:
+docker run -d -p 80:80 ubuntu /bin/bash
+
+3.Install Apache-2 on this container:
+Creata a Dockerfile:
+FROM ubuntu:latest
+
+RUN apt-get update && \
+    apt-get install -y apache2
+
+COPY index.html /var/www/html/
+
+EXPOSE 80
+
+CMD ["apache2ctl", "-D", "FOREGROUND"]
+
+4. Create an index.html file:
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hello from Docker!</title>
+</head>
+<body>
+  <h1>Hello from Docker!</h1>
+</body>
+</html>
+
+5.Build the Docker Image:
+docker build -t myimg .
+
+6.Run the Docker container:
+docker run -d -p 880:80 myimg
+
+7.Access through the web-browser:
+https://localhost
+
+-------------------------------------------------------------------------

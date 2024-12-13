@@ -10,3 +10,6 @@ sudo docker build . -t myimg
 docker run -itd --name mycont1 -p 81:80 ubuntu 
 
 3.Go inside the container and start the apache2 service
+docker exec -it <container-name or id> /bin/bash
+Once inside container type the following:
+sudo systemctl start apache2

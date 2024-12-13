@@ -6,6 +6,7 @@ ubuntu       latest    b1d9df8ab815   3 weeks ago         78.1MB
 bash         latest    0d8232586933   2 months ago        14.4MB
 
 2.Launch container from this new image and map the port to 81:
-docker run -it --name myimg1 bash
+sudo docker build . -t myimg
+docker run -itd --name mycont1 -p 81:80 ubuntu 
 
 3.Go inside the container and start the apache2 service

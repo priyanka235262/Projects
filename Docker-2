@@ -13,3 +13,37 @@ docker run -itd --name mycont1 -p 81:80 ubuntu
 docker exec -it <container-name or id> /bin/bash
 Once inside container type the following:
 sudo systemctl start apache2
+==================================
+1.First run the ubuntu container:
+sudo docker run -it -d ubuntu
+
+2.Go inside the container:
+sudo docker exec -it <container-id>
+
+3.Install Apache2
+inside container:
+apt-get install apache2
+
+4.To check the service apache2 is runninh: 
+service apache2 status 
+
+5.Exit and save
+sudo docker ps 
+sudo docker commit <container id> <imagename>(you can give dockerhub user id> ---saves the image and apache2
+
+
+6.Port mapping
+sudo docker run -it -p 82:80 -d pri/apache(image name)
+
+7.docker ps
+8.Inside container: sudo docker exec -it <container-id> bash
+service apache2 start
+IP address:82
+
+Logging into DockerHub:
+sudo docker login
+
+Push to dockerhub:
+sudo docker push pri/apache
+
+
